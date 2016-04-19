@@ -1,0 +1,32 @@
+body {
+  font-family: Arial;
+  background-color: black;
+}
+
+h1, h2 {
+  color: white;
+  text-align: center;
+}
+
+div {
+  width: 1500px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+ul {
+  color: white;
+}
+  ul:hover, ul.on {
+    color: #cc6600;
+    font-family:   Times;
+    background-color: black;
+    text-transform: uppercase;
+  }
+
+  footer {
+    margin-top: -20px;
+    color: #cc6600;
+  }
