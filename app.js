@@ -8,8 +8,8 @@ function cookieShop(min, max, average, location) {
   this.totalCookiesSold = 0;
   for (var i = 0; i < 15; i++) {
     this.customersPerHour = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-    this.cookiesPerHour.push(this.customersPerHour * this.avgCookiesPerCustomer);
-    this.totalCookiesSold += (this.customersPerHour * this.avgCookiesPerCustomer);
+    this.cookiesPerHour.push(Math.floor(this.customersPerHour * this.avgCookiesPerCustomer));
+    this.totalCookiesSold += (Math.floor(this.customersPerHour * this.avgCookiesPerCustomer));
   }
 }
 
@@ -18,6 +18,40 @@ var seatacAirport = new cookieShop(6, 24, 1.2, 'Seatac Airport');
 var southcenter = new cookieShop(11, 38, 1.9, 'Southcenter');
 var bellevueSquare = new cookieShop(20, 48, 3.3, 'Bellevue Square');
 var alki = new cookieShop(3, 24, 2.6, 'Alki');
+var locationArray = [pikePlace, seatacAirport, southcenter, bellevueSquare, alki];
+var table = document.getElementById('cookies');
+var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var tr1 = document.createElement('tr');
+var th1 = document.createElement('th');
+
+th1 = document.createElement('th');
+th1.textContent = '';
+tr1.appendChild(th1);
+for (var j = 0; j < hoursOpen.length; j++) {
+  th1 = document.createElement('th');
+  th1.textContent = hoursOpen[j];
+  tr1.appendChild(th1);
+}
+table.appendChild(tr1);
+
+function makeCookieShop(locationName) {
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = locationName.patsLocation;
+  tr.appendChild(th);
+  for (var i = 0; i < hoursOpen.length; i++) {
+    var td = document.createElement('td');
+    td.textContent = locationName.cookiesPerHour[i];
+    tr.appendChild(td);
+  }
+  td.textContent = locationName.totalCookiesSold;
+  tr.appendChild(td);
+  table.appendChild(tr);
+}
+
+for (var i = 0; i < locationArray.length; i++) {
+  makeCookieShop(locationArray[i]);
+}
 
 // var pikePlace = { //pikePlace is an object
 //   minCustomers: 17, //minCustomers is a key
@@ -64,7 +98,7 @@ var alki = new cookieShop(3, 24, 2.6, 'Alki');
 //   patsLocation: 'Alki'
 // };
 //
-// var locationArray = [pikePlace, seatacAirport, southcenter, bellevueSquare, alki];
+
 //
 // var hoursOpen = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ',
 // '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ']; //creating an array variable for each hour of operation

@@ -10,6 +10,27 @@ h1, h2 {
 
 table {
   width: 300px;
+  color: white;
+  border: solid;
+  border-collapse: collapse;
+}
+
+th {
+  border: solid;
+  border-width: thin;
+  padding: 10px;
+}
+
+td {
+  border: solid;
+  border-width: thin;
+  padding: 10px;
+}
+
+tr {
+  border: solid;
+  border-width: thin;
+  padding: 10px;
 }
 
 div {
@@ -20,7 +41,7 @@ div {
 }
 
 
-ul {
+/*ul {
   color: white;
 }
   ul:hover, ul.on {
@@ -28,9 +49,8 @@ ul {
     font-family:   Times;
     background-color: black;
     text-transform: uppercase;
-  }
+  }*/
 
   footer {
-    margin-top: -20px;
     color: #cc6600;
   }
