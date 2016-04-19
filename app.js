@@ -43,6 +43,8 @@ var alki = {
   patsLocation: 'Alki'
 };
 
+var locationArray = [pikePlace, seatacAirport, southcenter, bellevueSquare, alki];
+
 var hoursOpen = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ',
 '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ']; //creating an array variable for each hour of operation
 
@@ -96,17 +98,21 @@ for (var i = 0; i < hoursOpen.length; i++) {
 
 function printCookies(location) { //this function will print the data on the browser when called in the console
   var cookies = document.getElementById('cookies'); // a variable declared to attach the getElementById Id in HTML
-  var locationName = document.createElement('p'); //an element created to store the name of the location in HTML
+  var locationName = document.createElement('th'); //an element created to store the name of the location in HTML
   locationName.textContent = location.patsLocation; //using the new variable to print the location name
   cookies.appendChild(locationName); //adding the data to the DOM
   for (var i = 0; i < hoursOpen.length; i++) { //an iteration to go through the array to print per hour open
-    var newCookie = document.createElement('li'); //creating an element in a list
+    var newCookie = document.createElement('td'); //creating an element in a list
     newCookie.textContent = hoursOpen[i] + ' ' + location.cookiesPerHour[i] + ' cookies'; //printing to HTML using the new variable and textContent the array content each hour opened and the calculated cookiesPerHour per each location
     cookies.appendChild(newCookie); //adding the newly printed data to the DOM
   };
   var sumTotal = document.createElement('li');
   sumTotal.textContent = 'Total: ' + arraySum(location.cookiesPerHour) + ' cookies';
   cookies.appendChild(sumTotal);
+}
+
+for (var i = 0; i < locationArray.length; i++) {
+  printCookies(locationArray[i]);
 }
 
 function arraySum(myArray) { //a function that calculates the total sum of the array data
