@@ -3,4 +3,6 @@
 Awesome salmon cookie storefront
 
 Driver: Vien
-Navigator: Pat
+Navigator: Sean :)
+
+Wednesday: Checking the code again. Finishing up!
