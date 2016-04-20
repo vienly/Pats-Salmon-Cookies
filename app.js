@@ -14,6 +14,7 @@
 var locationNew = document.getElementById('cookies');
 var storeUpdateForm = document.getElementById('store-update-form');
 var addStoreUpdate = document.getElementById('add-new-store-button');
+
 storeUpdateForm.addEventListener('submit', handleDataSubmit);
 
 function cookieShop(min, max, average, location) {
@@ -41,6 +42,7 @@ var table = document.getElementById('cookies');
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var tr1 = document.createElement('tr');
 var th1 = document.createElement('th');
+
 
 th1 = document.createElement('th');
 th1.textContent = '';
