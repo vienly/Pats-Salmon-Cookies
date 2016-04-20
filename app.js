@@ -1,3 +1,21 @@
+// var AddStore = function(location, min, max, average) {
+//   this.location = location;
+//   this.min = min;
+//   this.max = max;
+//   this.average = average;
+// };
+//
+// AddStore.prototype.render = function() {
+//   var tableEl = document.createElement('td');
+//   tableEl.textContent = this.location + this.min + this.max + this.average;
+//   return tableEl;
+// };
+
+var locationNew = document.getElementById('cookies');
+var storeUpdateForm = document.getElementById('store-update-form');
+var addStoreUpdate = document.getElementById('add-new-store-button');
+storeUpdateForm.addEventListener('submit', handleDataSubmit);
+
 function cookieShop(min, max, average, location) {
   this.minCustomers = min;
   this.maxCustomers = max;
@@ -32,6 +50,9 @@ for (var j = 0; j < hoursOpen.length; j++) {
   th1.textContent = hoursOpen[j];
   tr1.appendChild(th1);
 }
+th1 = document.createElement('th');
+th1.textContent = 'Total';
+tr1.appendChild(th1);
 table.appendChild(tr1);
 
 function makeCookieShop(locationName) {
@@ -44,13 +65,53 @@ function makeCookieShop(locationName) {
     td.textContent = locationName.cookiesPerHour[i];
     tr.appendChild(td);
   }
-  td.textContent = locationName.totalCookiesSold;
-  tr.appendChild(td);
+  var totalCell = document.createElement('td');
+  totalCell.textContent = locationName.totalCookiesSold;
+  tr.appendChild(totalCell);
   table.appendChild(tr);
 }
 
 for (var i = 0; i < locationArray.length; i++) {
   makeCookieShop(locationArray[i]);
+}
+
+//var allData = [];
+
+// var renderAllNewData = function() {
+//   locationNew.textContent = '';
+//   for (var i = 0; i < allData.length; i++) {
+//     locationNew.appendChild(allData[i].render());
+//   }
+// };
+
+function handleDataSubmit(event) {
+  event.preventDefault();
+
+  if (!event.target.locationNew.value || !event.target.minCustomers.value || !event.target.maxCustomers.value || !event.target.avgCookies.value) {
+    return alert('Sorry, it please complete all fields.');
+  }
+  var locationNameNew = event.target.locationNew.value;
+  var minCustomersNew = Number.parseInt(event.target.minCustomers.value);
+  var maxCustomersNew = Number.parseInt(event.target.maxCustomers.value);
+  var avgCookiesNew = Number.parseFloat(event.target.avgCookies.value);
+
+  // if (locationNameNew === '') {
+  //   minCustomersNew = minCustomersNew;
+  //   maxCustomersNew = maxCustomersNew;
+  //   avgCookiesNew = avgCookiesNew;
+  // }
+
+  var newStore = new cookieShop(minCustomersNew, maxCustomersNew, avgCookiesNew, locationNameNew);
+
+  locationArray.push(newStore);
+  makeCookieShop(newStore);
+  // allData.push(newStore);
+//renderAllNewData();
+  event.target.locationNew.value = null;
+  event.target.minCustomers.value = null;
+  event.target.maxCustomers.value = null;
+  event.target.avgCookies.value = null;
+
 }
 
 // var pikePlace = { //pikePlace is an object
