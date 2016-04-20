@@ -8,19 +8,22 @@
   <form id="store-update-form">
     <fieldset>
       <legend>Add a new store location</legend>
-      <label for="locationNew">Add Store Name Location</label>
+      <label for="locationNew">Add Store Name Location: </label>
       <input name="locationNew" type="text">
-      <label for="minCustomers">Add Minimum Customers</label>
+      <label for="minCustomers">Add Minimum Customers: </label>
       <input name="minCustomers" type="text">
-      <label for="maxCustomers">Add Maximum Customers</label>
+      <label for="maxCustomers">Add Maximum Customers: </label>
       <input name="maxCustomers" type="text">
-      <label for="avgCookies">Add Average Cookies per Hour</label>
+      <label for="avgCookies">Add Average Cookies per Hour: </label>
       <input name="avgCookies" type="text">
+      <input type="button" onclick="changeContent()" value="Change Content">
 
       <button id="add-new-store-button" type="submit">Add New Store Information</button>
     </fieldset></form>
   <div>
 <table id="cookies">
+  <tbody id="tbody">
+  </tbody>
 </table>
 </div>
 <script src="app.js"></script>
